@@ -1,0 +1,22 @@
+{
+  "name": "react-router-dom",
+  "version": "0.0.1",
+  "description": "Mock for react-router-dom",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EugenTepin/react-router-dom-mock.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EugenTepin/react-router-dom-mock/issues"
+  },
+  "homepage": "https://github.com/EugenTepin/react-router-dom-mock#readme",
+  "dependencies": {
+    "react": "^16.9.0"
+  }
+}
