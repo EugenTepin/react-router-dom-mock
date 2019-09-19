@@ -26,24 +26,22 @@ export class NavLink extends React.Component {
       strict,
       location,
       "aria-current": aria_current,
-      className,
-      style,
       ...other
     } = this.props;
 
-
     if(window.location.pathname === to){
-      other.className = className + ' ' + activeClassName;
+      if(other.className !== undefined && activeClassName !== undefined){
+        other.className += ' ' + activeClassName;
+      }
       
-      const inlineStyle = Object.keys(activeStyle).reduce((result, propName)=> {
-        return result + propName + ':' +  activeStyle[propName] + ';';
-      },'');
-      
-      other.style = style + inlineStyle;
-    }else{
-      other.className = className;
-      other.style = style;
+      if(other.style !== undefined && activeStyle !== undefined){
+        const inlineStyle = Object.keys(activeStyle).reduce((result, propName)=> {
+          return result + propName + ':' +  activeStyle[propName] + ';';
+        },'');
+        other.style += inlineStyle;
+      }
     }
+
     other.href = to;
     other.ref = this.aRef;
     return React.createElement("a", other, " ", children);
