@@ -29,19 +29,18 @@ export class NavLink extends React.Component {
       ...other
     } = this.props;
 
-    if(window.location.pathname === to){
-      if(other.className !== undefined && activeClassName !== undefined){
-        other.className += ' ' + activeClassName;
-      }
-      
-      if(other.style !== undefined && activeStyle !== undefined){
+
+    if(window.location.pathname === to && activeClassName !== undefined){
+        other.className = (other.className !== undefined)? other.className + ' ' + activeClassName : activeClassName;
+    }
+
+    if(window.location.pathname === to && activeStyle !== undefined){
         const inlineStyle = Object.keys(activeStyle).reduce((result, propName)=> {
           return result + propName + ':' +  activeStyle[propName] + ';';
         },'');
-        other.style += inlineStyle;
-      }
+        other.style = (other.style !== undefined)? other.style + inlineStyle:inlineStyle;
     }
-
+    
     other.href = to;
     other.ref = this.aRef;
     return React.createElement("a", other, " ", children);
